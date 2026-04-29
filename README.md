@@ -28,6 +28,13 @@ Required for operator email notification:
 - `RESEND_FROM_EMAIL`
 - `LEADS_NOTIFICATION_EMAIL`
 
+Optional but strongly recommended for protecting `/leads`:
+- `LEADS_BASIC_AUTH_USERNAME`
+- `LEADS_BASIC_AUTH_PASSWORD`
+
+## Internal leads protection
+If `LEADS_BASIC_AUTH_USERNAME` and `LEADS_BASIC_AUTH_PASSWORD` are set, `/leads` is protected with HTTP Basic Auth.
+
 ## Commands
 ```bash
 npm install
