@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { InquiryForm } from "@/components/landing/inquiry-form";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -61,12 +62,7 @@ export default function FindSuppliersPage() {
             <h2 className="text-2xl font-semibold">Send Your Requirement</h2>
             <p className="text-zinc-600">We’ll use your request to identify relevant suppliers and follow up by email.</p>
           </div>
-          <form className="space-y-4 rounded-2xl border border-zinc-200 p-6">
-            <input className="w-full rounded-xl border border-zinc-300 px-4 py-3" placeholder="Name" />
-            <input className="w-full rounded-xl border border-zinc-300 px-4 py-3" placeholder="Email" type="email" />
-            <textarea className="min-h-36 w-full rounded-xl border border-zinc-300 px-4 py-3" placeholder="Example: We are looking for a cotton textile supplier in Uzbekistan." />
-            <button className="rounded-full bg-zinc-950 px-5 py-3 text-white" type="submit">Submit Inquiry</button>
-          </form>
+          <InquiryForm />
         </div>
       </section>
 
