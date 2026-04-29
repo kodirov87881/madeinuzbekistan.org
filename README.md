@@ -20,6 +20,14 @@ Initial scaffold for a B2B export directory MVP.
 ## Environment
 Copy `.env.example` to `.env` and fill values.
 
+Required for persistence:
+- `DATABASE_URL`
+
+Required for operator email notification:
+- `RESEND_API_KEY`
+- `RESEND_FROM_EMAIL`
+- `LEADS_NOTIFICATION_EMAIL`
+
 ## Commands
 ```bash
 npm install

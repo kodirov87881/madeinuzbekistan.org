@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
+import { sendLeadNotification } from "@/lib/notifications";
 import { prisma } from "@/lib/prisma";
 
 const inquirySchema = z.object({
@@ -64,12 +65,18 @@ export async function submitInquiry(
   }
 
   try {
-    await prisma.lead.create({
+    const lead = await prisma.lead.create({
       data: {
         ...parsed.data,
         source: "find-suppliers-in-uzbekistan",
       },
     });
+
+    try {
+      await sendLeadNotification(lead);
+    } catch (error) {
+      console.error("Failed to send lead notification", error);
+    }
 
     revalidatePath("/leads");
 
